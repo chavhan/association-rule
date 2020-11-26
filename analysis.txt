@@ -1,0 +1,102 @@
+Books 
+confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target  ext
+        0.7    0.1    1 none FALSE            TRUE       5    0.02      1     10  rules TRUE
+
+arules
+set of 299 rules 
+
+rule length distribution (lhs + rhs):sizes
+  2   3   4   5   6 
+ 12  84 123  70  10 
+
+inspect(head(sort(arules,by="lift")))
+    lhs                                  rhs        support confidence coverage lift     count
+[1] {CookBks,GeogBks,ItalArt}         => {ItalCook} 0.0240  0.9600000  0.025    8.458150 48   
+[2] {CookBks,ArtBks,GeogBks,ItalArt}  => {ItalCook} 0.0240  0.9600000  0.025    8.458150 48   
+[3] {ChildBks,CookBks,ItalArt}        => {ItalCook} 0.0285  0.9500000  0.030    8.370044 57   
+[4] {ChildBks,CookBks,ArtBks,ItalArt} => {ItalCook} 0.0285  0.9500000  0.030    8.370044 57   
+[5] {CookBks,DoItYBks,ItalArt}        => {ItalCook} 0.0250  0.9259259  0.027    8.157938 50   
+[6] {CookBks,DoItYBks,ArtBks,ItalArt} => {ItalCook} 0.0250  0.9259259  0.027    8.157938 50   
+
+====================================================================================================================================================================
+
+rule length distribution (lhs + rhs):sizes
+2 3 4 5 
+1 5 3 1 
+
+[1] {ItalCook}          => {CookBks} 0.1135  1          0.1135   2.320186 227  
+[2] {YouthBks,ItalCook} => {CookBks} 0.0590  1          0.0590   2.320186 118  
+[3] {ArtBks,ItalCook}   => {CookBks} 0.0565  1          0.0565   2.320186 113  
+[4] {DoItYBks,ItalCook} => {CookBks} 0.0585  1          0.0585   2.320186 117  
+[5] {GeogBks,ItalCook}  => {CookBks} 0.0640  1          0.0640   2.320186 128  
+[6] {ChildBks,ItalCook} => {CookBks} 0.0850  1          0.0850   2.320186 170  
+
+====================================================================================================================================================================
+
+> summary(arules)
+set of 41 rules
+
+rule length distribution (lhs + rhs):sizes
+ 2  3  4  5  6 
+ 3 12 17  8  1 
+
+
+> inspect(head(sort(arules,by="lift")))
+    lhs                         rhs        support confidence coverage lift     count
+[1] {CookBks,ItalArt}        => {ItalCook} 0.0375  0.9146341  0.0410   8.058451 75   
+[2] {CookBks,ArtBks,ItalArt} => {ItalCook} 0.0375  0.9146341  0.0410   8.058451 75   
+[3] {ItalAtlas}              => {RefBks}   0.0370  1.0000000  0.0370   4.662005 74   
+[4] {ItalArt}                => {ArtBks}   0.0485  1.0000000  0.0485   4.149378 97   
+[5] {ItalCook,ItalArt}       => {ArtBks}   0.0375  1.0000000  0.0375   4.149378 75   
+[6] {DoItYBks,ItalArt}       => {ArtBks}   0.0300  1.0000000  0.0300   4.149378 60   
+
+====================================================================================================================================================================
+without factor 
+
+> summary(arules_grocery)
+set of 436 rules
+
+rule length distribution (lhs + rhs):sizes
+  2   3   4 
+ 63 262 111 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    3.00    3.00    3.11    4.00    4.00 
+
+summary of quality measures:
+    support           confidence        coverage             lift             count     
+ Min.   :0.001046   Min.   :0.9000   Min.   :0.001046   Min.   :  1.675   Min.   :  16  
+ 1st Qu.:0.001504   1st Qu.:1.0000   1st Qu.:0.001504   1st Qu.:  1.862   1st Qu.:  23  
+ Median :0.002484   Median :1.0000   Median :0.002484   Median :  1.862   Median :  38  
+ Mean   :0.007129   Mean   :0.9923   Mean   :0.007160   Mean   :  2.746   Mean   : 109  
+ 3rd Qu.:0.004053   3rd Qu.:1.0000   3rd Qu.:0.004053   3rd Qu.:  2.501   3rd Qu.:  62  
+ Max.   :0.399778   Max.   :1.0000   Max.   :0.399778   Max.   :106.965   Max.   :6115  
+
+mining info:
+      data ntransactions support confidence
+ groceries         15296   0.001        0.9
+
+=====================================================================================================================================================================
+
+> summary(arules_grocery)
+set of 252 rules
+
+rule length distribution (lhs + rhs):sizes
+  2   3   4 
+ 41 153  58 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   3.000   3.067   3.000   4.000 
+
+summary of quality measures:
+    support           confidence        coverage             lift            count       
+ Min.   :0.002027   Min.   :0.9012   Min.   :0.002027   Min.   : 1.678   Min.   :  31.0  
+ 1st Qu.:0.002746   1st Qu.:1.0000   1st Qu.:0.002746   1st Qu.: 1.862   1st Qu.:  42.0  
+ Median :0.003727   Median :1.0000   Median :0.003727   Median : 1.862   Median :  57.0  
+ Mean   :0.011293   Mean   :0.9928   Mean   :0.011337   Mean   : 2.479   Mean   : 172.7  
+ 3rd Qu.:0.008172   3rd Qu.:1.0000   3rd Qu.:0.008352   3rd Qu.: 2.501   3rd Qu.: 125.0  
+ Max.   :0.399778   Max.   :1.0000   Max.   :0.399778   Max.   :42.607   Max.   :6115.0  
+
+mining info:
+              data ntransactions support confidence
+ groceries_advance         15296   0.002        0.9
